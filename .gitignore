@@ -1,0 +1,18 @@
+# Ignoruj pliki konfiguracyjne lub pliki zawierające dane wrażliwe
+config.py
+secrets.env
+
+# Ignoruj wirtualne środowisko Pythona
+venv/
+
+# Ignoruj pliki kompilowane przez Pythona
+__pycache__/
+*.pyc
+
+# Ignoruj foldery i pliki specyficzne dla edytora
+.vscode/
+.idea/
+
+# Ignoruj pliki tymczasowe
+*.log
+*.tmp
