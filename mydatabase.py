@@ -159,8 +159,17 @@ if __name__ == '__main__':
         create_tables(conn)
         insert_sample_data(conn)
 
-        select_all(conn, "products")
-        select_all(conn, "orders")
+         # Test funkcji select_where dla tabeli products
+        # Dodaje przykładowe dane do tabeli products
+        insert_product(conn, ('Testowy Produkt', 'Elektronika', 299.99, 20))
+        print("Test funkcji select_where dla tabeli products (kategoria = 'Elektronika'):")
+        select_where(conn, "products", "category", "=", "Elektronika")
+        product_id = 1  # Przykładowe ID, załóżmy, że ten produkt istnieje w bazie
+        insert_order(conn, (product_id, '2024-10-28 10:00:00', 3, 899.97))
+
+        # Używam funkcji select_where, aby znaleźć zamówienie z quantity większym niż 1
+        print("Test funkcji select_where dla tabeli orders (quantity > 1):")
+        select_where(conn, "orders", "quantity", ">", 1)
 
         conn.close()
         
